@@ -16,6 +16,7 @@ Enable random quote in your page (wherever you want)
 Add random quotes to you blog. 
 
 You can configure this plugin: 
+
 * position of the quotes (top/botton of the page), 
 * the html which embed the quote. 
 
