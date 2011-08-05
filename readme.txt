@@ -3,8 +3,8 @@
 Contributors: SedLex
 Author: SedLex
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://wordpress.org/extend/plugins/shorten-url/
-Tags: plugin, short url, bitly
+Plugin URI: http://wordpress.org/extend/plugins/simple-quotation/
+Tags: plugin, quotation
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
@@ -37,6 +37,9 @@ This plugin is under GPL licence.
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.0.2 =
+* Major update of the framework (3.0)
 
 = 1.0.1 =
 * First release in the wild web (enjoy)
