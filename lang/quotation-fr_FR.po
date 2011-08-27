@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-08-27T20:54:43+00:00\n"
+"Last-Translator: SedLex <http://www.sedlex.fr/>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: France\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "This plugin will add random quotes to your pages."
+msgstr "Ce plugin ajoutera une citation aléatoire dans vos articles/pages."
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Quotes"
+msgstr "Citations"
+
+msgid "Modify"
+msgstr "Modifier"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Author:"
+msgstr "Auteur :"
+
+msgid "Quote:"
+msgstr "Citation :"
+
+msgid "Add a new quote"
+msgstr "Ajouter une nouvelle citation"
+
+msgid "Here is the parameters of the plugin. Please modify them at your convenience."
+msgstr "Voici les paramètres du plugin. Modifiez les à votre convenance."
+
+msgid "The quote will be displayed:"
+msgstr "La citation à afficher :"
+
+msgid "In top of the page:"
+msgstr "En haut de la page :"
+
+msgid "After this HTML tag in the page:"
+msgstr "Après ce tag HTML dans la page :"
+
+msgid "Before this HTML tag in the page:"
+msgstr "Après ce tag HTML dans la page :"
+
+msgid "For instance, if you put %s, the quote will be printed AFTER/BEFORE the HTML tag %s"
+msgstr "Par exemple, si vous mettez %s, la citation sera affichée après/avant le tag HTML %s"
+
+msgid "If this input is empty, it means that you do not want to print a quote at a custom location"
+msgstr "Si ce champ est vide, cela signifie que vous ne voulez pas afficher une citation à un endroit personnalisé"
+
+msgid "How the quote will be displayed?"
+msgstr "Comment sera affichée la citation ?"
+
+msgid "With this HTML code:"
+msgstr "Avec ce code HTML :"
+
+msgid "The standard HTML is:"
+msgstr "Le HTML standard est :"
+
+msgid "The name of the author"
+msgstr "Le nom de l&#039;auteur"
+
+msgid "The given quote"
+msgstr "La citation"
+
+msgid "With this CSS style:"
+msgstr "Avec le style CSS :"
+
+msgid "The standard CSS is:"
+msgstr "Le CSS standard est :"
+
+msgid "Parameters"
+msgstr "Paramètres"
+
+msgid "Manage translations"
+msgstr "Gérer les traductions"
+
+msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
+msgstr "Ce formulaire vous permet de contacter facilement l&#039;auteur afin de discuter des problèmes / des incompatibilités / etc."
+
+msgid "Give feedback"
+msgstr "Donner un feedback"
+
+msgid "Here is the plugins developped by the author"
+msgstr "Voici les plugins de l&#039;auteur"
+
+msgid "Other possible plugins"
+msgstr "Autres plugins possibles"
+

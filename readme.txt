@@ -38,12 +38,16 @@ This plugin is under GPL licence.
 
 == Changelog ==
 
+= 1.0.3 =
+* Add translations
+* Add feedbacks
+* Add other plugins
+
 = 1.0.2 =
 * Major update of the framework (3.0)
 
 = 1.0.1 =
 * First release in the wild web (enjoy)
-
 
 == Frequently Asked Questions ==
 
@@ -51,5 +55,5 @@ This plugin is under GPL licence.
 
 Visit http://www.sedlex.fr/cote_geek/
 
-
-
+ 
+InfoVersion:7a470165bfc5d9f5e5b2914000e93ffb
