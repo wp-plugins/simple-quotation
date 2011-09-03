@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Quotation
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: <ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul></p><p>This plugin is under GPL licence. </p>
-Version: 1.0.3
+Version: 1.0.4
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -122,6 +122,9 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 			$maxnb = 20 ; 
 			$count = $wpdb->get_var('SELECT COUNT(*) FROM '.$table_name) ; 	
 			
+			// On verifie que les droits sont corrects
+			$this->check_folder_rights( array() ) ; 
+			
 			//==========================================================================================
 			//
 			// Mise en place du systeme d'onglet
@@ -132,7 +135,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 			$tabs = new adminTabs() ; 
 			
 			ob_start() ; 
-			
+						
 				//==========================================================================================
 				//
 				// Premier Onglet 

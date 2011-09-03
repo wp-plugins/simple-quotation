@@ -38,6 +38,9 @@ This plugin is under GPL licence.
 
 == Changelog ==
 
+= 1.0.4 =
+* Ensure that folders and files permissions are correct for an adequate behavior
+
 = 1.0.3 =
 * Add translations
 * Add feedbacks
@@ -56,4 +59,4 @@ This plugin is under GPL licence.
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:7a470165bfc5d9f5e5b2914000e93ffb
+InfoVersion:81685b6d7e4cc84dd9bac7a6bc835bbb
