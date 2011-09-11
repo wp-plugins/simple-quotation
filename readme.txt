@@ -38,6 +38,10 @@ This plugin is under GPL licence.
 
 == Changelog ==
 
+= 1.0.5 =
+* Enhance translations
+* ZipArchive class has been suppressed and pclzip is used instead
+
 = 1.0.4 =
 * Ensure that folders and files permissions are correct for an adequate behavior
 
@@ -59,4 +63,4 @@ This plugin is under GPL licence.
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:81685b6d7e4cc84dd9bac7a6bc835bbb
+InfoVersion:ce0e642321047a928bd8abc7a5df15ef

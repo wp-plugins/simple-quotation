@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Quotation
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: <ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul></p><p>This plugin is under GPL licence. </p>
-Version: 1.0.4
+Version: 1.0.5
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -104,9 +104,9 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		if (isset($_POST['add'])) {
 			$query = "INSERT INTO {$table_name} (author,quote) VALUES('".mysql_real_escape_string($_POST['author'])."','".mysql_real_escape_string($_POST['newquotes'])."');" ; 
 			if ($wpdb->query($query) === FALSE) {
-				echo '<div class="error fade"><p>An error occurs when updating the database.</p></div>' ; 
+				echo '<div class="error fade"><p>'.__('An error occurs when updating the database.', $this->pluginID).'</p></div>' ; 
 	     	} else {
-				echo '<div class="updated fade"><p>The quote has been added to the database.</p></div>' ; 
+				echo '<div class="updated fade"><p>'.__('The quote has been added to the database.', $this->pluginID).'</p></div>' ; 
 	      	}
 		}
 	
@@ -150,7 +150,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 
 				// lignes du tableau
 				// boucle sur les differents elements
-				$query = 'SELECT id_quote,author,quote FROM '.$table_name.' LIMIT '.$maxnb.' OFFSET '.(($page_cur-1)*$maxnb) ; 
+				$query = 'SELECT id_quote,author,quote FROM '.$table_name.' ORDER BY author ASC LIMIT '.$maxnb.' OFFSET '.(($page_cur-1)*$maxnb) ; 
 				$result = $wpdb->get_results($query) ; 
 
 				foreach ($result as $r) {
@@ -182,7 +182,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 						<label for='newquotes'><?php echo __('Quote:', $this->pluginID) ; ?></label>
 						<textarea name='newquotes' id='newquotes' rows="4" cols="100%"></textarea>
 						<div class="submit">
-							<input type="submit" name="add" class='button-primary validButton' value="Add the quote" />
+							<input type="submit" name="add" class='button-primary validButton' value="<?php echo __('Add the quote', $this->pluginID) ; ?>" />
 						</div>
 					</form>
 					<?php
@@ -263,7 +263,6 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		// Empty the database for the given idLink
 		$q = "DELETE FROM {$table_name} WHERE id_quote=".mysql_real_escape_string($idLink) ; 
 		$wpdb->query( $q ) ;
-		return "coucou" ; 
 		die();
 	}
 	
@@ -370,8 +369,6 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 			$insert = $this->get_quote() ;
 			$content = preg_replace('#'.$before.'#i',$insert."$0",$content);
 		}
-
-		//$insert = "coucou" ; 
 		
 		echo $content;
 	}

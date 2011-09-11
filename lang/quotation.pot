@@ -1,5 +1,15 @@
 Content-Transfer-Encoding: 8bit
 
+#: simple-quotation.php:107
+#@ quotation
+msgid "An error occurs when updating the database."
+msgstr ""
+
+#: simple-quotation.php:109
+#@ quotation
+msgid "The quote has been added to the database."
+msgstr ""
+
 #: simple-quotation.php:120
 #@ quotation
 msgid "This plugin will add random quotes to your pages."
@@ -34,6 +44,11 @@ msgstr ""
 #: simple-quotation.php:182
 #@ quotation
 msgid "Quote:"
+msgstr ""
+
+#: simple-quotation.php:185
+#@ quotation
+msgid "Add the quote"
 msgstr ""
 
 #: simple-quotation.php:189
