@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Quotation
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: <ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul></p><p>This plugin is under GPL licence. </p>
-Version: 1.0.5
+Version: 1.1.0
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -23,17 +23,19 @@ class quotation extends pluginSedLex {
 	static $path = false;
 
 	protected function _init() {
+		global $wpdb ; 
 		// Configuration
 		$this->pluginName = 'Simple Quotation' ; 
 		$this->tableSQL = "id_quote mediumint(9) NOT NULL AUTO_INCREMENT, quote TEXT DEFAULT '', author TEXT DEFAULT '', UNIQUE KEY id_quote (id_quote)" ; 
 		$this->path = __FILE__ ; 
+		$this->table_name = $wpdb->prefix . "pluginSL_" . get_class() ; 
 		$this->pluginID = get_class() ; 
 		
 		//Init et des-init
 		register_activation_hook(__FILE__, array($this,'install'));
 		register_deactivation_hook(__FILE__, array($this,'uninstall'));
 		
-		//Paramètres supplementaires
+		//Parametres supplementaires
 		add_action('template_redirect', array($this, 'add_quotes')) ; 
 		add_action('wp_head', array($this, 'buffer_start'));
 		add_action('wp_footer', array($this, 'buffer_end'));
@@ -43,7 +45,6 @@ class quotation extends pluginSedLex {
 		add_action('wp_ajax_delete_link', array($this,'delete_link'));
 		add_action('wp_ajax_validQuotes', array($this,'validQuotes')) ; 
 		add_action('wp_ajax_cancelQuotes', array($this,'cancelQuotes')) ; 
-
 	}
 	
 	/**
@@ -54,6 +55,33 @@ class quotation extends pluginSedLex {
 			self::$instance = new self;
 		}
 		return self::$instance;
+	}
+	
+	/**==========================================================================================================================================
+	 * Upgrade function
+	 */
+	 
+	public function _update() {
+		global $wpdb;
+		$table_name = $this->table_name;
+		$old_table_name = $wpdb->prefix . $this->pluginID ; 
+		
+		// This update aims at changing the table name from the old table name to the new one
+		if($wpdb->get_var("show tables like '$old_table_name'") == $old_table_name) {
+			// We delete the new created table
+			$wpdb->query("DROP TABLE ".$table_name) ; 
+			// We change the name of the old table
+			$wpdb->query("RENAME TABLE ".$old_table_name." TO ".$table_name) ; 
+			// Gestion de l'erreur
+			ob_start() ; 
+			$wpdb->print_error();
+			$result = ob_get_clean() ; 
+			if (strlen($result)>0) {
+				echo $result ; 
+				die() ; 
+			}
+		}
+		
 	}
 
 	/** ====================================================================================================================================================
@@ -98,7 +126,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	function configuration_page() {
 		global $wpdb;
 		$wpdb->show_errors() ; 
-		$table_name = $wpdb->prefix . $this->pluginID;
+		$table_name = $this->table_name;
 		
 		// Store the quote if the user submit a new one...
 		if (isset($_POST['add'])) {
@@ -256,7 +284,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	function delete_link() {
 		global $wpdb;
 		$wpdb->show_errors() ; 
-		$table_name = $wpdb->prefix . $this->pluginID;
+		$table_name = $this->table_name;
 		
 		// get the arguments
 		$idLink = $_POST['idLink'];
@@ -273,7 +301,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	*/
 	function validQuotes() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . $this->pluginID;
+		$table_name = $this->table_name;
 		
 		// get the arguments
 		$id = $_POST['id'];
@@ -294,7 +322,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	*/
 	function cancelQuotes() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . $this->pluginID;
+		$table_name = $this->table_name;
 		
 		// get the arguments
 		$id = $_POST['id'];
@@ -316,7 +344,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	
 	function get_quote() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . $this->pluginID;
+		$table_name = $this->table_name;
 
 		$q = "SELECT * FROM {$table_name}"; 
 		$result = $wpdb->get_results($q, ARRAY_A) ; 

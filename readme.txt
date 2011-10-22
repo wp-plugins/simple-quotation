@@ -4,7 +4,7 @@ Contributors: SedLex
 Author: SedLex
 Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/simple-quotation/
-Tags: plugin, quotation
+Tags: plugin, quotation, quote, citation
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
@@ -22,6 +22,25 @@ You can configure this plugin:
 
 This plugin is under GPL licence.
 
+= Localizations =
+
+* French translation (by me)
+
+= Features of the framework = 
+
+This plugin use SL framework.
+
+You may translate this plugin with an embedded feature which is very easy to use by any end-users (without any external tools / knowledge).
+
+You may also create a new plugin. You will download, from the plugin, an "hello World" plugin: You just have to fill the blank and follow the comments.
+
+Moreover, all the plugins developped with this framework is able to use astonishing tools, such as :
+
+* embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
+* detailled documentation of all available classes and methodes ; 
+* updating the core with a single click ; 
+* etc.
+
 == Installation ==
 
 1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
@@ -37,6 +56,12 @@ This plugin is under GPL licence.
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.1.0 =
+* SVN support
+
+= 1.0.6 =
+* Update of the core plugin
 
 = 1.0.5 =
 * Enhance translations
@@ -63,4 +88,4 @@ This plugin is under GPL licence.
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:ce0e642321047a928bd8abc7a5df15ef
+InfoVersion:9fbd4cf171e32b055b87840301151261
