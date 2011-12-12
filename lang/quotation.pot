@@ -132,36 +132,17 @@ msgid "Parameters"
 msgstr ""
 
 #: simple-quotation.php:257
-#: core/templates/my-plugin.php:227
 #@ quotation
 msgid "Manage translations"
 msgstr ""
 
-#: simple-quotation.php:260
-#: core/templates/my-plugin.php:230
-#@ quotation
-msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
-msgstr ""
-
-#: simple-quotation.php:264
-#: core/templates/my-plugin.php:234
+#: simple-quotation.php:263
 #@ quotation
 msgid "Give feedback"
 msgstr ""
 
-#: simple-quotation.php:267
+#: simple-quotation.php:268
 #@ quotation
-msgid "Here is the plugins developped by the author"
-msgstr ""
-
-#: simple-quotation.php:270
-#: core/templates/my-plugin.php:243
-#@ quotation
-msgid "Other possible plugins"
-msgstr ""
-
-#: core/templates/my-plugin.php:237
-#@ quotation
-msgid "Here is the plugins developped by the author:"
+msgid "Other plugins"
 msgstr ""
 
