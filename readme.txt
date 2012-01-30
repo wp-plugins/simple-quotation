@@ -1,15 +1,15 @@
 === Simple Quotation ===
 
-Contributors: SedLex
 Author: SedLex
+Contributors: SedLex
 Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/simple-quotation/
-Tags: plugin, quotation, quote, citation
+Tags: quotation, cite, citation, quote
 Requires at least: 3.0
-Tested up to: 3.2
+Tested up to: 3.3.1
 Stable tag: trunk
 
-Enable random quote in your page (wherever you want) 
+Add random quotes to you blog. 
 
 == Description ==
 
@@ -20,26 +20,25 @@ You can configure this plugin:
 * position of the quotes (top/botton of the page), 
 * the html which embed the quote. 
 
-This plugin is under GPL licence.
+This plugin is under GPL licence. 
 
-= Localizations =
+= Localization =
 
-* French translation (by me)
+* English (United States), default language
+* French (France) translation provided by SedLex
 
-= Features of the framework = 
+= Features of the framework =
 
-This plugin use SL framework.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
 
-You may translate this plugin with an embedded feature which is very easy to use by any end-users (without any external tools / knowledge).
+For instance, a new created plugin comes with
 
-You may also create a new plugin. You will download, from the plugin, an "hello World" plugin: You just have to fill the blank and follow the comments.
-
-Moreover, all the plugins developped with this framework is able to use astonishing tools, such as :
-
-* embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
-* detailled documentation of all available classes and methodes ; 
-* updating the core with a single click ; 
+* A translation interface to simplify the localization of the text of the plugin ; 
+* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
+* A detailled documentation of all available classes and methodes ; 
 * etc.
+
+Have fun !
 
 == Installation ==
 
@@ -56,6 +55,9 @@ Moreover, all the plugins developped with this framework is able to use astonish
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.2.0 =
+* Major release of the framework
 
 = 1.1.2 =
 * Modification of the English text (thanks to Rene)
@@ -94,4 +96,4 @@ Moreover, all the plugins developped with this framework is able to use astonish
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:617914e092acad135bb0193d6e42705c
+InfoVersion:1d83c43bf211bfa05d8c7a5bfaed1abb
