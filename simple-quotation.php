@@ -34,13 +34,15 @@ class quotation extends pluginSedLex {
 		
 		//Init et des-init
 		register_activation_hook(__FILE__, array($this,'install'));
-		register_deactivation_hook(__FILE__, array($this,'uninstall'));
+		register_deactivation_hook(__FILE__, array($this,'deactivate'));
+		register_uninstall_hook(__FILE__, array($this,'uninstall_removedata'));
 		
 		//Parametres supplementaires
 		add_action('template_redirect', array($this, 'add_quotes')) ; 
 		add_action('wp_head', array($this, 'buffer_start'));
 		add_action('wp_footer', array($this, 'buffer_end'));
 		add_action('wp_print_styles', array( $this, 'ajoute_inline_css'));
+		add_action('init', array( $this, 'test_if_export_quotes'), 1);
 
 
 		add_action('wp_ajax_delete_link', array($this,'delete_link'));
@@ -68,17 +70,22 @@ class quotation extends pluginSedLex {
 		$old_table_name = $wpdb->prefix . $this->pluginID ; 
 		
 		// This update aims at changing the table name from the old table name to the new one
-		if($wpdb->get_var("show tables like '$old_table_name'") == $old_table_name) {
-			// We delete the new created table
-			$wpdb->query("DROP TABLE ".$table_name) ; 
-			// We change the name of the old table
-			$wpdb->query("RENAME TABLE ".$old_table_name." TO ".$table_name) ; 
-			// Gestion de l'erreur
-			ob_start() ; 
-			$wpdb->print_error();
-			$result = ob_get_clean() ; 
-			if (strlen($result)>0) {
-				echo $result ; 
+		if ($wpdb->get_var("show tables like '$old_table_name'") == $old_table_name) {
+			if ($wpdb->get_var("SELECT COUNT(*) FROM ".$table_name) == 0) {
+				// We delete the new created table
+				$wpdb->query("DROP TABLE ".$table_name) ; 
+				// We change the name of the old table
+				$wpdb->query("RENAME TABLE ".$old_table_name." TO ".$table_name) ; 
+				// Gestion de l'erreur
+				ob_start() ; 
+				$wpdb->print_error();
+				$result = ob_get_clean() ; 
+				if (strlen($result)>0) {
+					echo $result ; 
+					die() ; 
+				}
+			} else {
+				echo sprintf(__("Couldn't drop the table %s because there is entries in it. Please merge the two tables %s and %s in a single table with name %s", $this->pluginID), $table_name, $table_name, $old_table_name, $table_name) ; 
 				die() ; 
 			}
 		}
@@ -119,6 +126,40 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	function ajoute_inline_css() {
 		$this->add_inline_css($this->get_param('css')) ; 
 	}
+	
+	
+	/** ====================================================================================================================================================
+	* Test if a quote file should be outputted
+	* 
+	* @return void
+	*/
+	
+	function test_if_export_quotes() {
+		global $wpdb;
+		$wpdb->show_errors() ; 
+		$table_name = $this->table_name;
+
+		if (isset($_POST['export'])) {
+			header("Content-Type: application/force-download; name=\"export_quotes_".date("Ymd").".txt\"");
+			header("Content-Transfer-Encoding: binary");
+			header("Content-Disposition: attachment; filename=\"export_quotes_".date("Ymd").".txt\"");
+			header("Expires: 0");
+			header("Cache-Control: no-cache, must-revalidate");
+			header("Pragma: no-cache");
+
+			// lignes du tableau
+			// boucle sur les differents elements
+			$query = 'SELECT id_quote,author,quote FROM '.$table_name.' ORDER BY author ASC' ; 
+			$result = $wpdb->get_results($query) ; 
+
+			foreach ($result as $r) {
+				echo Utils::convertUTF8(stripslashes($r->quote))."\n".Utils::convertUTF8(stripslashes($r->author))."\n" ;
+			}
+			
+			exit ; 
+		}	
+	}
+	
 	/** ====================================================================================================================================================
 	* The configuration page
 	* 
@@ -138,7 +179,44 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				echo '<div class="updated fade"><p>'.__('The quote has been added to the database.', $this->pluginID).'</p></div>' ; 
 	      	}
 		}
-	
+		
+		// Store the quote if the user submit a file...
+		if (isset($_POST['import'])) {
+			if (is_file($_FILES['fileImport']['tmp_name'])) {
+				$lines = @file($_FILES['fileImport']['tmp_name']) ; 
+				$quote = true ; 
+				$author = false ; 
+				$success = true ; 
+				$nb_import = 0 ; 
+				$tmp_quote = "" ; 
+				foreach ($lines as $l) {
+					if ($quote) {
+						$tmp_quote = mysql_real_escape_string(Utils::convertUTF8($l)) ; 
+						$quote = false ; 
+						$author = true ; 
+					} else {
+						$quote = true ; 
+						$author = false ; 
+						$query = "INSERT INTO {$table_name} (author,quote) VALUES('".mysql_real_escape_string(Utils::convertUTF8($l))."','".$tmp_quote."');" ; 
+						if ($wpdb->query($query) === FALSE) {
+							$success = false ; 
+						} else {
+							$nb_import ++ ;
+						}
+					}
+				}
+				if ($success==false) {
+					if ($nb_import==0) {
+						echo '<div class="error fade"><p>'.__('An error occurs when updating the database.', $this->pluginID).'</p></div>' ; 
+					} else {
+						echo '<div class="error fade"><p>'.sprintf(__('An error occurs when updating the database. Nevertheless %s sentences has been imported successfully.', $this->pluginID), $nb_import).'</p></div>' ; 
+					}
+				} else {
+					echo '<div class="updated fade"><p>'.sprintf(__('%s quotes have been added to the database.', $this->pluginID), $nb_import).'</p></div>' ; 
+				}
+			}
+		}
+
 		?>
 		<div class="wrap">
 			<div id="icon-themes" class="icon32"><br></div>
@@ -205,7 +283,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				
 				ob_start() ; 
 					?>
-					<form method='post' action='<?echo $_SERVER["REQUEST_URI"]?>#tab-quotes'>
+					<form method='post' action='<?echo $_SERVER["REQUEST_URI"]?>'>
 						<label for='author'><?php echo __('Author:', $this->pluginID) ; ?></label>
 						<input name='author' id='author' type='text' value='' size='40'/><br/>
 						<label for='newquotes'><?php echo __('Quote:', $this->pluginID) ; ?></label>
@@ -218,6 +296,21 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				$box = new boxAdmin (__('Add a new quote', $this->pluginID), ob_get_clean()) ; 
 				echo $box->flush() ; 
 				
+				ob_start() ; 
+					?>
+					<form method='post' enctype='multipart/form-data' action='<?echo $_SERVER["REQUEST_URI"]?>'>
+						<p style='color: #a4a4a4;'><?php echo __("The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author).", $this->pluginID) ; ?></p>
+						<label for='fileImport'><?php echo __('Select the file:', $this->pluginID) ; ?></label>
+						<input name='fileImport' id='fileImport' type='file'/><br/>
+						<div class="submit">
+							<input type="submit" name="import" class='button-primary validButton' value="<?php echo __('Import the file', $this->pluginID) ; ?>" />
+							<input type="submit" name="export" class='button-primary validButton' value="<?php echo __('Export the quotes', $this->pluginID) ; ?>" />
+						</div>
+					</form>
+					<?php
+				$box = new boxAdmin (__('Import/Export multiple quotes', $this->pluginID), ob_get_clean()) ; 
+				echo $box->flush() ; 
+				
 			$tabs->add_tab(__('Quotes',  $this->pluginID), ob_get_clean() ) ; 	
 
 			ob_start() ; 
@@ -228,8 +321,9 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				$params->add_title(__('The quote will be displayed:',$this->pluginID)) ; 
 				$params->add_param('top', __('In top of the page:',$this->pluginID)) ; 
 				$params->add_param('perso', __('After this HTML tag in the page:',$this->pluginID)) ; 
+				$params->add_comment(sprintf(__('For instance, if you put %s, the quote will be printed AFTER the HTML tag %s',$this->pluginID), "<code>&lt;body[^>]*&gt;</code>", "<code>body</code>")."<br/>".__('If this input is empty, it means that you do not want to print a quote at a custom location',$this->pluginID)) ; 	
 				$params->add_param('perso2', __('Before this HTML tag in the page:',$this->pluginID)) ; 
-				$params->add_comment(sprintf(__('For instance, if you put %s, the quote will be printed AFTER/BEFORE the HTML tag %s',$this->pluginID), "<code>&lt;body[^>]*&gt;</code>", "<code>body</code>")."<br/>".__('If this input is empty, it means that you do not want to print a quote at a custom location',$this->pluginID)) ; 	
+				$params->add_comment(sprintf(__('For instance, if you put %s, the quote will be printed BEFORE the HTML tag %s',$this->pluginID), "<code>&lt;div id='footer'&gt;</code>", "<code>body</code>")."<br/>".__('If this input is empty, it means that you do not want to print a quote at a custom location',$this->pluginID)) ; 	
 				$params->add_title(__('How the quote will be displayed?',$this->pluginID)) ; 
 				$params->add_param('html', __('With this HTML code:',$this->pluginID)) ; 
 				$comment = __('The standard HTML is:',$this->pluginID); 
