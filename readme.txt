@@ -61,6 +61,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.2 =
+* Update the core
+
 = 1.2.1 =
 * Massive import/export now possible
 
@@ -89,4 +92,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:8fa9fe5eab1e184ced95be6091879678
+InfoVersion:1bd304d0b06359ae4e622c076ff933f4

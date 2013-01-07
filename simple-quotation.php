@@ -3,7 +3,7 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.1
+Version: 1.2.2
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -21,7 +21,7 @@ class quotation extends pluginSedLex {
 	* @return void
 	*/
 	static $instance = false;
-	static $path = false;
+	var $path = false;
 
 	protected function _init() {
 		global $wpdb ; 
@@ -35,15 +35,13 @@ class quotation extends pluginSedLex {
 		//Init et des-init
 		register_activation_hook(__FILE__, array($this,'install'));
 		register_deactivation_hook(__FILE__, array($this,'deactivate'));
-		register_uninstall_hook(__FILE__, array($this,'uninstall_removedata'));
+		register_uninstall_hook(__FILE__, array('quotation','uninstall_removedata'));
 		
 		//Parametres supplementaires
 		add_action('template_redirect', array($this, 'add_quotes')) ; 
 		add_action('wp_head', array($this, 'buffer_start'));
 		add_action('wp_footer', array($this, 'buffer_end'));
-		add_action('wp_print_styles', array( $this, 'ajoute_inline_css'));
 		add_action('init', array( $this, 'test_if_export_quotes'), 1);
-
 
 		add_action('wp_ajax_delete_link', array($this,'delete_link'));
 		add_action('wp_ajax_validQuotes', array($this,'validQuotes')) ; 
@@ -58,6 +56,37 @@ class quotation extends pluginSedLex {
 			self::$instance = new self;
 		}
 		return self::$instance;
+	}
+	
+	/** ====================================================================================================================================================
+	* In order to uninstall the plugin, few things are to be done ... 
+	* (do not modify this function)
+	* 
+	* @return void
+	*/
+	
+	public function uninstall_removedata () {
+		global $wpdb ;
+		// DELETE OPTIONS
+		delete_option('quotation'.'_options') ;
+		if (is_multisite()) {
+			delete_site_option('quotation'.'_options') ;
+		}
+		
+		// DELETE SQL
+		if (function_exists('is_multisite') && is_multisite()){
+			$old_blog = $wpdb->blogid;
+			$old_prefix = $wpdb->prefix ; 
+			// Get all blog ids
+			$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM ".$wpdb->blogs));
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				$wpdb->query("DROP TABLE ".str_replace($old_prefix, $wpdb->prefix, $wpdb->prefix . "pluginSL_" . 'quotation')) ; 
+			}
+			switch_to_blog($old_blog);
+		} else {
+			$wpdb->query("DROP TABLE ".$wpdb->prefix . "pluginSL_" . 'quotation' ) ; 
+		}
 	}
 	
 	/**==========================================================================================================================================
@@ -118,12 +147,15 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 	}
 
 	/** ====================================================================================================================================================
-	* Add CSS
-	* 
+	* Init css for the public side
+	* If you want to load a style sheet, please type :
+	*	<code>$this->add_inline_css($css_text);</code>
+	*	<code>$this->add_css($css_url_file);</code>
+	*
 	* @return void
 	*/
 	
-	function ajoute_inline_css() {
+	function _public_css_load() {	
 		$this->add_inline_css($this->get_param('css')) ; 
 	}
 	

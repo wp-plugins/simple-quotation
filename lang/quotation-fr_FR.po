@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-12-12T14:35:15+00:00\n"
+"PO-Revision-Date: 2012-09-22T09:50:55+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,20 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes\n"
 
+msgid "Couldn't drop the table %s because there is entries in it. Please merge the two tables %s and %s in a single table with name %s"
+msgstr ""
+
 msgid "An error occurs when updating the database."
 msgstr "Une erreur est survenue lors de la mise à jour de la base de données."
 
 msgid "The quote has been added to the database."
 msgstr "La citation a été correctement ajoutée à la base de données."
+
+msgid "An error occurs when updating the database. Nevertheless %s sentences has been imported successfully."
+msgstr ""
+
+msgid "%s quotes have been added to the database."
+msgstr "%s citations ont été ajoutées dans la base de données"
 
 msgid "This plugin will add random quotes to your pages."
 msgstr "Ce plugin ajoutera une citation aléatoire dans vos articles/pages."
@@ -53,6 +62,21 @@ msgstr "Ajouter la citation"
 msgid "Add a new quote"
 msgstr "Ajouter une nouvelle citation"
 
+msgid "The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author)."
+msgstr ""
+
+msgid "Select the file:"
+msgstr ""
+
+msgid "Import the file"
+msgstr ""
+
+msgid "Export the quotes"
+msgstr ""
+
+msgid "Import/Export multiple quotes"
+msgstr ""
+
 msgid "Here is the parameters of the plugin. Please modify them at your convenience."
 msgstr "Voici les paramètres du plugin. Modifiez les à votre convenance."
 
@@ -65,14 +89,17 @@ msgstr "En haut de la page :"
 msgid "After this HTML tag in the page:"
 msgstr "Après ce tag HTML dans la page :"
 
-msgid "Before this HTML tag in the page:"
-msgstr "Après ce tag HTML dans la page :"
-
-msgid "For instance, if you put %s, the quote will be printed AFTER/BEFORE the HTML tag %s"
-msgstr "Par exemple, si vous mettez %s, la citation sera affichée après/avant le tag HTML %s"
+msgid "For instance, if you put %s, the quote will be printed AFTER the HTML tag %s"
+msgstr ""
 
 msgid "If this input is empty, it means that you do not want to print a quote at a custom location"
 msgstr "Si ce champ est vide, cela signifie que vous ne voulez pas afficher une citation à un endroit personnalisé"
+
+msgid "Before this HTML tag in the page:"
+msgstr "Après ce tag HTML dans la page :"
+
+msgid "For instance, if you put %s, the quote will be printed BEFORE the HTML tag %s"
+msgstr "Par exemple, si vous mettez %s, la citation sera affichée AVANT le tag HTML %s"
 
 msgid "How the quote will be displayed?"
 msgstr "Comment sera affichée la citation ?"
