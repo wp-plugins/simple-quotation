@@ -3,7 +3,7 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.2
+Version: 1.2.3
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -473,12 +473,15 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 
 		$q = "SELECT * FROM {$table_name}"; 
 		$result = $wpdb->get_results($q, ARRAY_A) ; 
-		$n = rand(0, count($result)-1) ; 
-		
-		$quote = stripslashes($result[$n]['quote']) ; 
-		$author = stripslashes($result[$n]['author']) ; 
-		$html = $this->get_param('html') ; 
-		return str_replace("%quote%", $quote, str_replace("%author%",$author, $html)) ; 
+		if (count($result)>0) {
+			$n = rand(0, count($result)-1) ; 
+			$quote = stripslashes($result[$n]['quote']) ; 
+			$author = stripslashes($result[$n]['author']) ; 
+			$html = $this->get_param('html') ; 
+			return str_replace("%quote%", $quote, str_replace("%author%",$author, $html)) ; 
+		} else {
+			return "" ; 
+		}
 	}
 	/** ====================================================================================================================================================
 	* Add the random quotes

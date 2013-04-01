@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/simple-quotation/
 Tags: quotation, cite, citation, quote
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.5
 Stable tag: trunk
 
 Add random quotes to you blog. 
@@ -47,7 +47,7 @@ Have fun !
 
 == Installation ==
 
-1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
+1. Upload this folder simple-quotation to your plugin directory (for instance '/wp-content/plugins/')
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to the 'SL plugins' box
 4. All plugins developed with the SL core will be listed in this box
@@ -60,6 +60,10 @@ Have fun !
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.2.3 =
+* Lighten the plugin
+* Add translations
 
 = 1.2.2 =
 * Update the core
@@ -92,4 +96,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:1bd304d0b06359ae4e622c076ff933f4
+InfoVersion:7184b87fad9d0f3665df748969794d96
