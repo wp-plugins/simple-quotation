@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-05-12T20:18:55+00:00\n"
+"Last-Translator: RafaelMoreno <rmdioni@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: Spain\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Couldn't drop the table %s because there is entries in it. Please merge the two tables %s and %s in a single table with name %s"
+msgstr "No se puede eliminar la tabla %s porque no hay entradas en la misma. Por favor, fusionar las dos tablas %s y %s en una sola tabla con el nombre %s"
+
+msgid "An error occurs when updating the database."
+msgstr "Un error ha ocurrido en la actualización de la base de datos."
+
+msgid "The quote has been added to the database."
+msgstr "La cita ha sido añadido a la base de datos."
+
+msgid "An error occurs when updating the database. Nevertheless %s sentences has been imported successfully."
+msgstr "Un error ha ocurrido en la actualización de la base de datos. Sin embargo las frases %s se han importado correctamente."
+
+msgid "%s quotes have been added to the database."
+msgstr "%s citas se han añadido a la base de datos."
+
+msgid "This plugin will add random quotes to your pages."
+msgstr "Este plugin añade citas aleatorias a sus páginas."
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Quotes"
+msgstr "Citas"
+
+msgid "Modify"
+msgstr "Modificar"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Author:"
+msgstr "Autor:"
+
+msgid "Quote:"
+msgstr "Cita:"
+
+msgid "Add the quote"
+msgstr "Añadir la cita"
+
+msgid "Add a new quote"
+msgstr "Añadir una nueva cita"
+
+msgid "The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author)."
+msgstr "El archivo debe ser un archivo de texto UTF-8, que contenga 2 líneas por entrada (una para la cita, y otro para el autor)."
+
+msgid "Select the file:"
+msgstr "Seleccione el archivo:"
+
+msgid "Import the file"
+msgstr "Importe el archivo"
+
+msgid "Export the quotes"
+msgstr "Exportar las citas"
+
+msgid "Import/Export multiple quotes"
+msgstr "Importar/Exportar múltiples citas"
+
+msgid "Here is the parameters of the plugin. Please modify them at your convenience."
+msgstr "He aquí los parámetros del plugin. Por favor, modifiquelos a su conveniencia."
+
+msgid "The quote will be displayed:"
+msgstr "Se mostrará la cita:"
+
+msgid "In top of the page:"
+msgstr "En la parte superior de la página:"
+
+msgid "After this HTML tag in the page:"
+msgstr "Después de esta etiqueta HTML en la página:"
+
+msgid "For instance, if you put %s, the quote will be printed AFTER the HTML tag %s"
+msgstr "Por ejemplo, si pones %s, la cita se mostrará después de la etiqueta HTML %s"
+
+msgid "If this input is empty, it means that you do not want to print a quote at a custom location"
+msgstr "Si esta entrada está vacía, significa que usted no desea imprimir una cita en una ubicación personalizada"
+
+msgid "Before this HTML tag in the page:"
+msgstr "Antes de esta etiqueta HTML en la página:"
+
+msgid "For instance, if you put %s, the quote will be printed BEFORE the HTML tag %s"
+msgstr "Por ejemplo, si pones %s, la cita se mostrará antes de la etiqueta HTML %s"
+
+msgid "How the quote will be displayed?"
+msgstr "¿Cómo se muestra la cita?"
+
+msgid "With this HTML code:"
+msgstr "Con este código HTML:"
+
+msgid "The standard HTML is:"
+msgstr "El HTML estándar es:"
+
+msgid "The name of the author"
+msgstr "El nombre del autor"
+
+msgid "The given quote"
+msgstr "La cita dada"
+
+msgid "With this CSS style:"
+msgstr "Con este estilo CSS:"
+
+msgid "The standard CSS is:"
+msgstr "El CSS estándar es:"
+
+msgid "Parameters"
+msgstr "Parámetros"
+
+msgid "Manage translations"
+msgstr "Gestione traducciones"
+
+msgid "Give feedback"
+msgstr "Comentarios y sugerencias"
+
+msgid "Other plugins"
+msgstr "Otros plugins"
+

@@ -3,7 +3,7 @@
 Author: SedLex
 Contributors: SedLex
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://wordpress.org/extend/plugins/simple-quotation/
+Plugin URI: http://wordpress.org/plugins/simple-quotation/
 Tags: quotation, cite, citation, quote
 Requires at least: 3.0
 Tested up to: 3.5
@@ -29,6 +29,7 @@ This plugin works with multisite installation.
 = Localization =
 
 * English (United States), default language
+* Spanish (Spain) translation provided by RafaelMoreno
 * French (France) translation provided by SedLex
 * Slovak (Slovakia) translation provided by MichalTinka
 
@@ -60,6 +61,9 @@ Have fun !
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.2.4 =
+* Update the core
 
 = 1.2.3 =
 * Lighten the plugin
@@ -96,4 +100,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:7184b87fad9d0f3665df748969794d96
+InfoVersion:c8633c1b628bf2a4593db106eeaeb73a
