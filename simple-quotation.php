@@ -3,7 +3,8 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.4
+Version: 1.2.5
+
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -302,7 +303,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 					ob_start() ; 
 					?>
 					<span id="quote<?php echo $r->id_quote; ?>" ><?php echo stripslashes($r->quote) ; ?></span>
-					<img src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) ?>img/ajax-loader.gif" id="wait<?php echo $r->id_quote ; ?>" style="display: none;" />
+					<img src="<?php echo plugin_dir_url("/").'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) ?>img/ajax-loader.gif" id="wait<?php echo $r->id_quote ; ?>" style="display: none;" />
 					<?php
 					$cel2 = new adminCell(ob_get_clean()) ; 	
 					$cel2->add_action(__("Modify", $this->pluginID), "modifyButtonQuote") ; 
@@ -375,24 +376,24 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				$comment .= "<br/><span style='margin-left: 30px;'><code>span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:#AAAAAA ; font-size:11px ; }</code></span><br/>" ; 
 				$params->add_comment($comment) ; 	
 				$params->flush() ; 
-			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
+			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 		
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new translationSL($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
-			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
+			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new feedbackSL($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
-			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
+			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 			
 			ob_start() ; 
 				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
-			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
+			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
 			echo $tabs->flush() ; 
 			

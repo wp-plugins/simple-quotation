@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-01-12T10:04:26+00:00\n"
+"Last-Translator: MicaelOlsson <itare.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: Sweden\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Couldn't drop the table %s because there is entries in it. Please merge the two tables %s and %s in a single table with name %s"
+msgstr "Kunde inte droppa tabellen %s eftersom det finns poster i den. Vänligen slå ihop de två tabellerna %s och %s till en enda tabell med namnet %s"
+
+msgid "An error occurs when updating the database."
+msgstr "Ett fel inträffade vid uppdatering av databasen."
+
+msgid "The quote has been added to the database."
+msgstr "Citatet har lagts till i databasen."
+
+msgid "An error occurs when updating the database. Nevertheless %s sentences has been imported successfully."
+msgstr "Ett fel inträffade vid uppdatering av databasen. Trots detta har %s meningar blivit importerade."
+
+msgid "%s quotes have been added to the database."
+msgstr "%s citat har lagts till i databasen."
+
+msgid "This plugin will add random quotes to your pages."
+msgstr "Detta tillägg kommer visa slumpmässigt valda citat på dina sidor."
+
+msgid "Author"
+msgstr "Författare"
+
+msgid "Quotes"
+msgstr "Citat"
+
+msgid "Modify"
+msgstr "Ändra"
+
+msgid "Delete"
+msgstr "Radera"
+
+msgid "Author:"
+msgstr "Författare"
+
+msgid "Quote:"
+msgstr "Citat"
+
+msgid "Add the quote"
+msgstr "Lägg till citatet"
+
+msgid "Add a new quote"
+msgstr "Lägg till nytt citat"
+
+msgid "The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author)."
+msgstr "Filen skall vara en UTF-8-textfil med 2 rader per post (en för citatet och en för författarens namn)."
+
+msgid "Select the file:"
+msgstr "Välj fil:"
+
+msgid "Import the file"
+msgstr "Importera filen"
+
+msgid "Export the quotes"
+msgstr "Exportera citaten"
+
+msgid "Import/Export multiple quotes"
+msgstr "Importera/Exportera flera citat"
+
+msgid "Here is the parameters of the plugin. Please modify them at your convenience."
+msgstr "Här är parametrarna för tillägget. Vänligen modifiera dem när du har tid."
+
+msgid "The quote will be displayed:"
+msgstr "Citatet kommer att visas:"
+
+msgid "In top of the page:"
+msgstr "Överst på sidan:"
+
+msgid "After this HTML tag in the page:"
+msgstr "Efter denna HTML-tag på sidan:"
+
+msgid "For instance, if you put %s, the quote will be printed AFTER the HTML tag %s"
+msgstr "T.ex. om du skriver %s så kommer citatet visas EFTER HTML-taggen %s"
+
+msgid "If this input is empty, it means that you do not want to print a quote at a custom location"
+msgstr "Om detta fält är tomt betyder det att du inte vill visa citat på egen plats"
+
+msgid "Before this HTML tag in the page:"
+msgstr "Före denna HTML-tagg på sidan:"
+
+msgid "For instance, if you put %s, the quote will be printed BEFORE the HTML tag %s"
+msgstr "T.ex. om du skriver %s så kommer citatet visas FÖRE HTML-taggen %s"
+
+msgid "How the quote will be displayed?"
+msgstr "Hur kommer citatet visas?"
+
+msgid "With this HTML code:"
+msgstr "Med denna HTML-kod:"
+
+msgid "The standard HTML is:"
+msgstr "Standardkoden för HTML är:"
+
+msgid "The name of the author"
+msgstr "Namn på författaren"
+
+msgid "The given quote"
+msgstr "Visat citat"
+
+msgid "With this CSS style:"
+msgstr "Med denna CSS-stil:"
+
+msgid "The standard CSS is:"
+msgstr "Standard-CSS är:"
+
+msgid "Parameters"
+msgstr "Parametrar"
+
+msgid "Manage translations"
+msgstr "Hantera översättningar"
+
+msgid "Give feedback"
+msgstr "Lämna synpunkter"
+
+msgid "Other plugins"
+msgstr "Andra tillägg"
+

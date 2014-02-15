@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/simple-quotation/
 Tags: quotation, cite, citation, quote
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.8.1
 Stable tag: trunk
 
 Add random quotes to you blog. 
@@ -32,6 +32,7 @@ This plugin works with multisite installation.
 * Spanish (Spain) translation provided by RafaelMoreno
 * French (France) translation provided by SedLex
 * Slovak (Slovakia) translation provided by MichalTinka
+* Swedish (Sweden) translation provided by MicaelOlsson
 
 = Features of the framework =
 
@@ -61,6 +62,9 @@ Have fun !
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.2.5 =
+* Various enhancements
 
 = 1.2.4 =
 * Update the core
@@ -100,4 +104,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:c8633c1b628bf2a4593db106eeaeb73a
+InfoVersion:d67bcbd69b6cb028ab9823f1081e3f6f
