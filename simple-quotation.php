@@ -3,7 +3,7 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.6
+Version: 1.2.7
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -330,7 +330,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				
 				ob_start() ; 
 					?>
-					<form method='post' enctype='multipart/form-data' action='<?echo $_SERVER["REQUEST_URI"]?>'>
+					<form method='post' enctype='multipart/form-data' action='<?php echo $_SERVER["REQUEST_URI"]?>'>
 						<p style='color: #a4a4a4;'><?php echo __("The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author).", $this->pluginID) ; ?></p>
 						<label for='fileImport'><?php echo __('Select the file:', $this->pluginID) ; ?></label>
 						<input name='fileImport' id='fileImport' type='file'/><br/>
