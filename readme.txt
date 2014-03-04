@@ -63,6 +63,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.6 =
+* BUG: php issue with the form to add citation
+
 = 1.2.5 =
 * Various enhancements
 
@@ -104,4 +107,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:aff1b5722ad40b4c005bf796b7c0da81
+InfoVersion:8da14bebf41a2f2f85c5d2d10342afee
