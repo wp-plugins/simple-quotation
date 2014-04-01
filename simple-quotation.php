@@ -3,7 +3,7 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.7
+Version: 1.2.8
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -250,12 +250,13 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		}
 
 		?>
-		<div class="wrap">
-			<div id="icon-themes" class="icon32"><br></div>
+		<div class="plugin-titleSL">
 			<h2><?php echo $this->pluginName ?></h2>
 		</div>
-		<div style="padding:20px;">
+		
+		<div class="plugin-contentSL">		
 			<?php echo $this->signature ; ?>
+			
 			<p><?php echo __('This plugin will add random quotes to your pages.', $this->pluginID) ; ?></p>
 		<?php
 			$maxnb = 20 ; 

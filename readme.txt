@@ -63,6 +63,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.8 =
+* NEW: add banner
+
 = 1.2.6 =
 * BUG: php issue with the form to add citation
 
@@ -107,4 +110,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:2841cc82f603bae196de1c1ab293b9ef
+InfoVersion:f64b3eee89053cd0f9e2c4a34c387eab
