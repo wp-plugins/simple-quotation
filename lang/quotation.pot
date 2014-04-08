@@ -26,169 +26,169 @@ msgstr ""
 msgid "%s quotes have been added to the database."
 msgstr ""
 
-#: simple-quotation.php:259
+#: simple-quotation.php:260
 #@ quotation
 msgid "This plugin will add random quotes to your pages."
 msgstr ""
 
-#: simple-quotation.php:288
+#: simple-quotation.php:289
 #@ quotation
 msgid "Author"
 msgstr ""
 
-#: simple-quotation.php:288
-#: simple-quotation.php:346
+#: simple-quotation.php:289
+#: simple-quotation.php:347
 #@ quotation
 msgid "Quotes"
 msgstr ""
 
-#: simple-quotation.php:308
+#: simple-quotation.php:309
 #@ quotation
 msgid "Modify"
 msgstr ""
 
-#: simple-quotation.php:309
+#: simple-quotation.php:310
 #@ quotation
 msgid "Delete"
 msgstr ""
 
-#: simple-quotation.php:319
+#: simple-quotation.php:320
 #@ quotation
 msgid "Author:"
 msgstr ""
 
-#: simple-quotation.php:321
+#: simple-quotation.php:322
 #@ quotation
 msgid "Quote:"
 msgstr ""
 
-#: simple-quotation.php:324
+#: simple-quotation.php:325
 #@ quotation
 msgid "Add the quote"
 msgstr ""
 
-#: simple-quotation.php:328
+#: simple-quotation.php:329
 #@ quotation
 msgid "Add a new quote"
 msgstr ""
 
-#: simple-quotation.php:334
+#: simple-quotation.php:335
 #@ quotation
 msgid "The file should be a UTF-8 text file which contains 2 lines per entry (one for the quote, and one for the author)."
 msgstr ""
 
-#: simple-quotation.php:335
+#: simple-quotation.php:336
 #@ quotation
 msgid "Select the file:"
 msgstr ""
 
-#: simple-quotation.php:338
+#: simple-quotation.php:339
 #@ quotation
 msgid "Import the file"
 msgstr ""
 
-#: simple-quotation.php:339
+#: simple-quotation.php:340
 #@ quotation
 msgid "Export the quotes"
 msgstr ""
 
-#: simple-quotation.php:343
+#: simple-quotation.php:344
 #@ quotation
 msgid "Import/Export multiple quotes"
 msgstr ""
 
-#: simple-quotation.php:350
+#: simple-quotation.php:351
 #@ quotation
 msgid "Here is the parameters of the plugin. Please modify them at your convenience."
 msgstr ""
 
-#: simple-quotation.php:353
+#: simple-quotation.php:354
 #@ quotation
 msgid "The quote will be displayed:"
 msgstr ""
 
-#: simple-quotation.php:354
+#: simple-quotation.php:355
 #@ quotation
 msgid "In top of the page:"
 msgstr ""
 
-#: simple-quotation.php:355
+#: simple-quotation.php:356
 #@ quotation
 msgid "After this HTML tag in the page:"
 msgstr ""
 
-#: simple-quotation.php:356
+#: simple-quotation.php:357
 #@ quotation
 msgid "For instance, if you put %s, the quote will be printed AFTER the HTML tag %s"
 msgstr ""
 
-#: simple-quotation.php:356
-#: simple-quotation.php:358
+#: simple-quotation.php:357
+#: simple-quotation.php:359
 #@ quotation
 msgid "If this input is empty, it means that you do not want to print a quote at a custom location"
 msgstr ""
 
-#: simple-quotation.php:357
+#: simple-quotation.php:358
 #@ quotation
 msgid "Before this HTML tag in the page:"
 msgstr ""
 
-#: simple-quotation.php:358
+#: simple-quotation.php:359
 #@ quotation
 msgid "For instance, if you put %s, the quote will be printed BEFORE the HTML tag %s"
 msgstr ""
 
-#: simple-quotation.php:359
+#: simple-quotation.php:360
 #@ quotation
 msgid "How the quote will be displayed?"
 msgstr ""
 
-#: simple-quotation.php:360
+#: simple-quotation.php:361
 #@ quotation
 msgid "With this HTML code:"
 msgstr ""
 
-#: simple-quotation.php:361
+#: simple-quotation.php:362
 #@ quotation
 msgid "The standard HTML is:"
 msgstr ""
 
-#: simple-quotation.php:368
+#: simple-quotation.php:369
 #@ quotation
 msgid "The name of the author"
 msgstr ""
 
-#: simple-quotation.php:369
+#: simple-quotation.php:370
 #@ quotation
 msgid "The given quote"
 msgstr ""
 
-#: simple-quotation.php:371
+#: simple-quotation.php:372
 #@ quotation
 msgid "With this CSS style:"
 msgstr ""
 
-#: simple-quotation.php:372
+#: simple-quotation.php:373
 #@ quotation
 msgid "The standard CSS is:"
 msgstr ""
 
-#: simple-quotation.php:378
+#: simple-quotation.php:379
 #@ quotation
 msgid "Parameters"
 msgstr ""
 
-#: simple-quotation.php:384
+#: simple-quotation.php:385
 #@ quotation
 msgid "Manage translations"
 msgstr ""
 
-#: simple-quotation.php:390
+#: simple-quotation.php:391
 #@ quotation
 msgid "Give feedback"
 msgstr ""
 
-#: simple-quotation.php:395
+#: simple-quotation.php:396
 #@ quotation
 msgid "Other plugins"
 msgstr ""
