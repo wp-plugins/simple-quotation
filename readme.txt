@@ -63,29 +63,19 @@ Have fun !
 
 == Changelog ==
 
-= 1.2.8 =
+= 1.3.0 =
+* Major improve of the framework
+* NEW : How to
+
+= 1.2.0 -&gt; 1.2.8 =
 * NEW: add banner
-
-= 1.2.6 =
 * BUG: php issue with the form to add citation
-
-= 1.2.5 =
 * Various enhancements
-
-= 1.2.4 =
 * Update the core
-
-= 1.2.3 =
 * Lighten the plugin
 * Add translations
-
-= 1.2.2 =
 * Update the core
-
-= 1.2.1 =
 * Massive import/export now possible
-
-= 1.2.0 =
 * Major release of the framework
 
 = 1.1.0 -&gt; 1.1.2 =
@@ -110,4 +100,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:5107d0c79c3ee740472003c6f8918dab
+InfoVersion:89ee29348d78ada352ec0ee1193bc82cf70c42a7

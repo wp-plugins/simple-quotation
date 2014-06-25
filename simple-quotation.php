@@ -3,7 +3,8 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.2.8
+Version: 1.3.0
+
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -185,7 +186,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 			$result = $wpdb->get_results($query) ; 
 
 			foreach ($result as $r) {
-				echo Utils::convertUTF8(stripslashes($r->quote))."\n".Utils::convertUTF8(stripslashes($r->author))."\n" ;
+				echo SLFramework_Utils::convertUTF8(stripslashes($r->quote))."\n".SLFramework_Utils::convertUTF8(stripslashes($r->author))."\n" ;
 			}
 			
 			exit ; 
@@ -204,7 +205,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		
 		// Store the quote if the user submit a new one...
 		if (isset($_POST['add'])) {
-			$query = "INSERT INTO {$table_name} (author,quote) VALUES('".mysql_real_escape_string($_POST['author'])."','".mysql_real_escape_string($_POST['newquotes'])."');" ; 
+			$query = "INSERT INTO {$table_name} (author,quote) VALUES('".esc_sql($_POST['author'])."','".esc_sql($_POST['newquotes'])."');" ; 
 			if ($wpdb->query($query) === FALSE) {
 				echo '<div class="error fade"><p>'.__('An error occurs when updating the database.', $this->pluginID).'</p></div>' ; 
 	     	} else {
@@ -223,13 +224,13 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				$tmp_quote = "" ; 
 				foreach ($lines as $l) {
 					if ($quote) {
-						$tmp_quote = mysql_real_escape_string(Utils::convertUTF8($l)) ; 
+						$tmp_quote = esc_sql(SLFramework_Utils::convertUTF8($l)) ; 
 						$quote = false ; 
 						$author = true ; 
 					} else {
 						$quote = true ; 
 						$author = false ; 
-						$query = "INSERT INTO {$table_name} (author,quote) VALUES('".mysql_real_escape_string(Utils::convertUTF8($l))."','".$tmp_quote."');" ; 
+						$query = "INSERT INTO {$table_name} (author,quote) VALUES('".esc_sql(SLFramework_Utils::convertUTF8($l))."','".$tmp_quote."');" ; 
 						if ($wpdb->query($query) === FALSE) {
 							$success = false ; 
 						} else {
@@ -255,10 +256,8 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		</div>
 		
 		<div class="plugin-contentSL">		
-			<?php echo $this->signature ; ?>
+			<?php echo $this->signature ; 
 			
-			<p><?php echo __('This plugin will add random quotes to your pages.', $this->pluginID) ; ?></p>
-		<?php
 			$maxnb = 20 ; 
 			$count = $wpdb->get_var('SELECT COUNT(*) FROM '.$table_name) ; 	
 			
@@ -272,7 +271,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 			//
 			//==========================================================================================
 
-			$tabs = new adminTabs() ; 
+			$tabs = new SLFramework_Tabs() ; 
 			
 			ob_start() ; 
 						
@@ -284,7 +283,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 				//
 				//==========================================================================================
 
-				$table = new adminTable($count, $maxnb) ; 
+				$table = new SLFramework_Table($count, $maxnb) ; 
 				$page_cur = $table->current_page() ; 
 				$table->title(array(__('Author', $this->pluginID), __('Quotes', $this->pluginID)) ) ; 
 
@@ -326,7 +325,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 						</div>
 					</form>
 					<?php
-				$box = new boxAdmin (__('Add a new quote', $this->pluginID), ob_get_clean()) ; 
+				$box = new SLFramework_Box (__('Add a new quote', $this->pluginID), ob_get_clean()) ; 
 				echo $box->flush() ; 
 				
 				ob_start() ; 
@@ -341,16 +340,33 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 						</div>
 					</form>
 					<?php
-				$box = new boxAdmin (__('Import/Export multiple quotes', $this->pluginID), ob_get_clean()) ; 
+				$box = new SLFramework_Box (__('Import/Export multiple quotes', $this->pluginID), ob_get_clean()) ; 
 				echo $box->flush() ; 
 				
 			$tabs->add_tab(__('Quotes',  $this->pluginID), ob_get_clean() ) ; 	
+
+			// HOW To
+			ob_start() ;
+				echo "<p>".__("This plugin allows the display of random quotes on your frontpage.", $this->pluginID)."</p>" ; 
+			$howto1 = new SLFramework_Box (__("Purpose of that plugin", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ;
+				echo "<p>".__('Just configure the position of the quotes in the configuration tab.', $this->pluginID)."</p>" ; 
+			$howto2 = new SLFramework_Box (__("How to display the quotes?", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ;
+				echo "<p>".__('Customize your quotes in the quote tab and enjoy...', $this->pluginID)."</p>" ; 
+			$howto3 = new SLFramework_Box (__("What quotes will be displayed?", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ;
+				 echo $howto1->flush() ; 
+				 echo $howto2->flush() ; 
+				 echo $howto3->flush() ; 
+			$tabs->add_tab(__('How To',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_how.png") ; 				
+
 
 			ob_start() ; 
 				?>
 				<p><?php echo __('Here is the parameters of the plugin. Please modify them at your convenience.',$this->pluginID) ; ?> </p>
 				<?php
-				$params = new parametersSedLex($this, 'tab-parameters') ; 
+				$params = new SLFramework_Parameters($this, 'tab-parameters') ; 
 				$params->add_title(__('The quote will be displayed:',$this->pluginID)) ; 
 				$params->add_param('top', __('In top of the page:',$this->pluginID)) ; 
 				$params->add_param('perso', __('After this HTML tag in the page:',$this->pluginID)) ; 
@@ -380,18 +396,18 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new translationSL($this->pluginID, $plugin) ; 
+				$trans = new SLFramework_Translation($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
 			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new feedbackSL($plugin, $this->pluginID) ; 
+				$trans = new SLFramework_Feedback($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
 			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 			
 			ob_start() ; 
-				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
+				$trans = new SLFramework_OtherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
 			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
@@ -415,7 +431,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		// get the arguments
 		$idLink = $_POST['idLink'];
 		// Empty the database for the given idLink
-		$q = "DELETE FROM {$table_name} WHERE id_quote=".mysql_real_escape_string($idLink) ; 
+		$q = "DELETE FROM {$table_name} WHERE id_quote=".esc_sql($idLink) ; 
 		$wpdb->query( $q ) ;
 		die();
 	}
@@ -434,7 +450,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		$quote = $_POST['quote'];
 		
 		// Empty the database for the given idLink
-		$q = "UPDATE {$table_name} SET quote = '".mysql_real_escape_string($quote)."' WHERE id_quote=".mysql_real_escape_string($id) ; 
+		$q = "UPDATE {$table_name} SET quote = '".esc_sql($quote)."' WHERE id_quote=".esc_sql($id) ; 
 		$wpdb->query( $q ) ;
 		echo stripslashes($quote) ; 
 		die();
@@ -453,7 +469,7 @@ span.quote-author  { line-height:20px ; padding-right:20px ; float:right; color:
 		// get the arguments
 		$id = $_POST['id'];
 		// Get a entry
-		$q = "SELECT * FROM {$table_name} WHERE id_quote=".mysql_real_escape_string($id) ; 
+		$q = "SELECT * FROM {$table_name} WHERE id_quote=".esc_sql($id) ; 
 		$result = $wpdb->get_results($q) ; 
 
 		foreach ($result as $r) {
