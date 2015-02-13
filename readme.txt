@@ -6,8 +6,9 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/simple-quotation/
 Tags: quotation, cite, citation, quote
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 4.2
 Stable tag: trunk
+License: GPLv3
 
 Add random quotes to you blog. 
 
@@ -36,14 +37,9 @@ This plugin works with multisite installation.
 
 = Features of the framework =
 
-This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing tools and frames (see dev-toolbox plugin for more info).
 
-For instance, a new created plugin comes with
-
-* A translation interface to simplify the localization of the text of the plugin ; 
-* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
-* A detailled documentation of all available classes and methodes ; 
-* etc.
+You may easily translate the text of the plugin and submit it to the developer, send a feedback, or choose the location of the plugin in the admin panel.
 
 Have fun !
 
@@ -62,6 +58,10 @@ Have fun !
 3. Examples of quote rendering
 
 == Changelog ==
+
+= 1.3.1 =
+* NEW: icons
+* NEW: delete content on uninstall
 
 = 1.3.0 =
 * Major improve of the framework
@@ -100,4 +100,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:526aa0435dc8acddba0448784e8418a4081f9ae9
+InfoVersion:c8d6427a611663fb35198b47e1fc81a2879a8809

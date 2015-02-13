@@ -3,7 +3,8 @@
 Plugin Name: Simple Quotation
 Plugin Tag: quotation, cite, citation, quote
 Description: <p>Add random quotes to you blog. </p><p>You can configure this plugin: </p><ul><li>position of the quotes (top/botton of the page), </li><li>the html which embed the quote. </li></ul><p>This plugin is under GPL licence. </p>
-Version: 1.3.0
+Version: 1.3.1
+
 
 Author: SedLex
 Author Email: sedlex@sedlex.fr
@@ -87,6 +88,20 @@ class quotation extends pluginSedLex {
 			switch_to_blog($old_blog);
 		} else {
 			$wpdb->query("DROP TABLE ".$wpdb->prefix . "pluginSL_" . 'quotation' ) ; 
+		}
+		
+		// DELETE FILES if needed
+		//SLFramework_Utils::rm_rec(WP_CONTENT_DIR."/sedlex/my_plugin/"); 
+		$plugins_all = 	get_plugins() ; 
+		$nb_SL = 0 ; 	
+		foreach($plugins_all as $url => $pa) {
+			$info = pluginSedlex::get_plugins_data(WP_PLUGIN_DIR."/".$url);
+			if ($info['Framework_Email']=="sedlex@sedlex.fr"){
+				$nb_SL++ ; 
+			}
+		}
+		if ($nb_SL==1) {
+			SLFramework_Utils::rm_rec(WP_CONTENT_DIR."/sedlex/"); 
 		}
 	}
 	
